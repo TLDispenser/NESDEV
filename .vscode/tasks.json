@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build NES ROM (Active File)",
+            "type": "shell",
+            "command": "sh build.sh ${file}",
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Run NES ROM (Mesen2, Active File)",
+            "type": "shell",
+            "command": "mesen2 out/${fileBasenameNoExtension}.nes",
+            "group": "test",
+            "problemMatcher": [],
+            "dependsOn": ["Build NES ROM (Active File)"],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Build and Run NES ROM (Mesen2, Active File)",
+            "type": "shell",
+            "command": "sh build.sh ${file} && mesen2 out/${fileBasenameNoExtension}.nes",
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        // {
+        //     "label": "Build and Run NES ROM (FCEUX, Active File)",
+        //     "type": "shell",
+        //     "command": "sh build.sh ${file} && ./OhNo/fceux/build/src/fceux out/${fileBasenameNoExtension}.nes",
+        //     "group": "build",
+        //     "problemMatcher": [],
+        //     "presentation": {
+        //         "reveal": "always"
+        //     }
+        // }
+    ]
+}
