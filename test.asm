@@ -6,9 +6,9 @@
     .byte   $01, $00
 
 .segment "ZEROPAGE"
-    gamestate   .res 1
+    gamestate:   .res 1
 
-    playerx     .res 1
+    playerx:     .res 1
 
 .segment "STARTUP" ; Still don't know what this is for
 
@@ -88,7 +88,9 @@ vblank:
     sta $2005 ;no scrolling (maybe later???)
     sta $2005 ;no scrolling (idk which is which)
 
-; Put rest of game here
+; game code
+
+; palettes and the like
 
 .segment "VECTORS"
     .word vblank
